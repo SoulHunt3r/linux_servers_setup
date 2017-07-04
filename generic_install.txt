@@ -29,6 +29,10 @@
      sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
      cd /media/VirtualBoxGuestAdditions
      sudo ./VBoxLinuxAdditions.run
+  2) or:
+     sudo mount -r /dev/cdrom /media/cdrom
+     cd /media/cdrom
+     sudo ./VBoxLinuxAdditions.run
 5. if we are an virtual host: configure Shared Folders
   1) commands:
      mkdir share
