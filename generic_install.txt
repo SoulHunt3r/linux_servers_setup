@@ -1,7 +1,11 @@
 ﻿#
 1. install selected image to target host
   1) use selected image (ubuntu-server in example)
-2. check/configure network interfaces
+2. check locale
+  1) vi /etc/default/locale
+  2) check file attr. root:root, rw-r-r
+  3) example locale file in examples
+3. check/configure network interfaces
   1) make sure we can access network
   2) make sure we are accessible from network
   3) commands:
@@ -9,7 +13,7 @@
      netstat -i -e,.
      ip addr, список интерфейсов с параметрами.
      vi /etc/network/interfaces, редактировать конфиг файл для интерфейсов.
-3. update packages
+4. update packages
   1) run commands:
      mkdir work_temp
      sudo apt update
@@ -23,7 +27,7 @@
      только уже установленные пакеты, если надо добавить или удалить - пакет не будет обновлен.
      apt full-upgrade (в прошлом dist-upgrade), добавляется умное разрешение зависимостей для новых версий.
      конфликтующие могут быть удалены, а новые и дополнительные - установлены.
-4. if we are an virtual host: install required Guest OS Additions
+5. if we are an virtual host: install required Guest OS Additions
   1) commands:
      sudo mkdir /media/VirtualBoxGuestAdditions
      sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
@@ -33,10 +37,11 @@
      sudo mount -r /dev/cdrom /media/cdrom
      cd /media/cdrom
      sudo ./VBoxLinuxAdditions.run
-5. if we are an virtual host: configure Shared Folders
+6. if we are an virtual host: configure Shared Folders
   1) commands:
      mkdir share
      sudo mount -t vboxsf virtualbox_shared ~/share
-6. install and configure sshd
+7. install and configure sshd
   1) 
-7. we are done for operations on local console and can use remote console.
+8. we are done for operations on local console and can use remote console.
+
