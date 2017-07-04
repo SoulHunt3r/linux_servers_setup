@@ -1,0 +1,38 @@
+﻿#
+1. install selected image to target host
+  1) use selected image (ubuntu-server in example)
+2. check/configure network interfaces
+  1) make sure we can access network
+  2) make sure we are accessible from network
+  3) commands:
+     sudo lshw -C network, посмотреть оборудование, интересен logical name:, содержит имя интерфейса.
+     netstat -i -e,.
+     ip addr, список интерфейсов с параметрами.
+     vi /etc/network/interfaces, редактировать конфиг файл для интерфейсов.
+3. update packages
+  1) run commands:
+     mkdir work_temp
+     sudo apt update
+     apt list --upgradable > work_temp/pkg2upgrade.txt
+     sudo apt full-upgrade
+     sudo apt autoremove && sudo apt autoclean && sudo apt clean
+  2) разное:
+     apt list --upgradable или apt list --upgradeable, выведет лист пакетов доступных для обновления
+     apt upgrade, устанавливает самые новые версии. использует все репозитории /etc/apt/sources.list 
+     и /etc/apt/sources.list.d/*. обновляет не только из официальных репозиториев но и из PPA. обновляет
+     только уже установленные пакеты, если надо добавить или удалить - пакет не будет обновлен.
+     apt full-upgrade (в прошлом dist-upgrade), добавляется умное разрешение зависимостей для новых версий.
+     конфликтующие могут быть удалены, а новые и дополнительные - установлены.
+4. if we are an virtual host: install required Guest OS Additions
+  1) commands:
+     sudo mkdir /media/VirtualBoxGuestAdditions
+     sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+     cd /media/VirtualBoxGuestAdditions
+     sudo ./VBoxLinuxAdditions.run
+5. if we are an virtual host: configure Shared Folders
+  1) commands:
+     mkdir share
+     sudo mount -t vboxsf virtualbox_shared ~/share
+6. install and configure sshd
+  1) 
+7. we are done for operations on local console and can use remote console.
