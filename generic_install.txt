@@ -42,6 +42,11 @@
      mkdir share
      sudo mount -t vboxsf virtualbox_shared ~/share
 7. install and configure sshd
-  1) 
-8. we are done for operations on local console and can use remote console.
+  1) commands:
+     sudo apt-get install ssh
+     sudo service ssh stop|start|restart
+     vi /etc/ssh/sshd_config
+8. check for installed packages
+  1) dpkg -l
+9. we are done for operations on local console and can use remote console.
 
