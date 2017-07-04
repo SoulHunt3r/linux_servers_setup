@@ -42,10 +42,34 @@
      mkdir share
      sudo mount -t vboxsf virtualbox_shared ~/share
 7. install and configure sshd
-  1) commands:
+  1) server commands:
+     dpkg -l | grep openssh-server
      sudo apt-get install ssh
-     sudo service ssh stop|start|restart
+     sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults
+     sudo chmod a-w /etc/ssh/sshd_config.factory-defaults
      vi /etc/ssh/sshd_config
+     sudo service ssh stop|start|restart
+     ps -A | grep sshd # is running
+     sudo ss -lnp | grep sshd # listen for incoming
+     ssh -v localhost -p 22 # try localhost login
+  2) client commands:
+     ssh-keygen -t rsa -b 4096
+     chmod 0700 ~/.ssh/
+     chmod 0600 ~/.ssh/id*
+     ssh-copy-id -p 22 user@target_host_server
+     ssh user@target_host_server
+  3) putty:
+     run puttygen.
+     load private key - Conversions->Import Key.
+     Save private key and name .ppk file
+     run putty.
+     Session - Honst Name or IP Address # target host to connect
+     Session - Port
+     Session - Saved Session # name for session
+     Connection - data - autologin username = user
+     Connection - data - ssh - auth = ppk file path
+     Session - Save # saving
+     Session - Saved Session - Load - Open # should run
 8. check for installed packages
   1) dpkg -l
 9. we are done for operations on local console and can use remote console.
