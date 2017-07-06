@@ -1,5 +1,5 @@
 ﻿#
-1. Stand-alone (as service):
+1. Stand-alone (as service) (for Debian/Ununtu):
   1) add one of PPA:
     1. regular builds:
       wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
