@@ -1,0 +1,62 @@
+﻿1. generate maven file from archetypes:
+  1) app command: mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=com.mycompany.app -DartifactId=my-app
+  2) or command:
+    mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DgroupId=com.mycompany.app \
+    -DartifactId=my-app
+  3) web-app command: mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=my-webapp
+2. Lifecycle default (in order):
+  1) validate
+  2) initialize
+  3) generate-sources
+  4) process-sources
+  5) generate-resources
+  6) process-resources
+  7) compile  # just compile main part ( test compilation later)
+  8) process-classes
+  9) generate-test-sources
+  10) process-test-sources
+  11) generate-test-resources
+  12) process-test-resources
+  13) test-compile  # just compile test (main already compiled to this step)
+  14) process-test-classes
+  15) test  # just run test (main, test already compiled to this step)
+  16) prepare-package
+  17) package  # create package (jar by default)
+  18) pre-integration-test
+  19) integration-test
+  20) post-integration-test
+  21) verify
+  22) install  # install package to local repository
+  23) deploy  # install package to remote repository
+3. Lifecycle clean:
+  1) pre-clean
+  2) clean  # clean project (remove target dir with all data in it before starting)
+  3) post-clean
+4. Lifecycle site:
+  1) pre-site
+  2) site  # create documentation (in html site form)
+  3) post-site
+  4) site-deploy
+5. Order is important
+  1) mvn clean package - will cleanup first then create package
+  2) mvn package clean - will create package, and clean after that
+  3) so in some cases that make sense - in example we do not need compiled stuff and all, we just need package in local rep in example.
+     we run: mvn install clean
+6. Generate project files:
+  1) IDEA: mvn idea:idea
+    1. Have advantages - can be run over the top of existing project, will just update setting nor creating new one.
+    2. Disadvantages - better just import in IDEA IDE.
+  2) Eclipse: mvn eclipse:eclipse
+7. change release git branching from popular model to another:
+    code in dev-branch is X.Y-SNAPSHOT, checkout -b release-X.Y develop, clear of '-SNAPSHOT', some stuff, merge to master, tag and stuff,
+    increment version X.Y+1 in example, add '-SNAPSHOT', merge back to develop, delete branch release-X.Y,
+    now code in dev-branch is X.(Y+1)-SNAPSHOT and master-branch is X.Y
+8. deploy to remote: http://maven.apache.org/guides/getting-started/index.html#How_do_I_deploy_my_jar_in_my_remote_repository
+9. sources version: http://maven.apache.org/guides/getting-started/index.html#How_do_I_use_plugins
+10. scope are: compile(default), test(test&execute), runtime(runtime&test,!compile), system, provided(compile&test), import(maven 2.0.9+ only). More in https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+11. reps: http://maven.apache.org/guides/introduction/introduction-to-repositories.html
+12. offline switch: mvn -o package
+13. mvn help:effective-pom # usefull, look configuration
+14. mvn dependency:tree -Dverbose
