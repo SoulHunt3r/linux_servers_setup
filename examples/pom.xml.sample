@@ -17,7 +17,7 @@
 
     <!-- manual set -->
     <properties>
-        <fully.qualified.main.class>${project.groupId}.${project.artifactId}.App</fully.qualified.main.class>
+        <fully.qualified.main.class>${project.groupId}.App</fully.qualified.main.class>
         <project.java.version>1.8</project.java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
