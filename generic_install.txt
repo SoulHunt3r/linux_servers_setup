@@ -58,6 +58,7 @@
      chmod 0600 ~/.ssh/id*
      ssh-copy-id -p 22 user@target_host_server
      ssh user@target_host_server
+     ssh -t user@target_host_server   # for colored terminal
   3) putty:
      run puttygen.
      load private key - Conversions->Import Key.
