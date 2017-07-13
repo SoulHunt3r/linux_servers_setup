@@ -59,4 +59,7 @@
 11. reps: http://maven.apache.org/guides/introduction/introduction-to-repositories.html
 12. offline switch: mvn -o package
 13. mvn help:effective-pom # usefull, look configuration
-14. mvn dependency:tree -Dverbose
+14. mvn dependency:tree -Dverbose, mvn dependency:list
+15. mvn dependency:copy-dependencies -DoutputDirectory=target/lib
+16. mvn dependency:purge-local-repository
+17. mvn dependency:sources
