@@ -27,6 +27,7 @@
     <!-- manual set -->
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -47,9 +48,26 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <mainClass>${fully.qualified.main.class}</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals><goal>copy-dependencies</goal></goals>
+                        <configuration>
+                            <outputDirectory>target/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -128,6 +146,19 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+    <!-- manual set end -->
+
+    <!-- manual set -->
+    <distributionManagement>
+      <repository>
+        <id>192.168.1.240</id>
+        <url>http://192.168.1.240:8081/nexus/content/repositories/releases</url>
+      </repository>
+      <snapshotRepository>
+        <id>192.168.1.240</id>
+        <url>http://192.168.1.240:8081/nexus/content/repositories/snapshots</url>
+      </snapshotRepository>
+    </distributionManagement>
     <!-- manual set end -->
 
 </project>
