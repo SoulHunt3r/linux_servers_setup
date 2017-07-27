@@ -1,0 +1,6 @@
+﻿1. install and configure
+  1) sudo apt-get install ansible sshpass
+  2) sudo vi /etc/ansible/hosts
+2. python 2.4+ should be present on target hosts
+3.
+
