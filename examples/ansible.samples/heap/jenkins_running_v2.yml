@@ -1,0 +1,25 @@
+---
+- name: jenkins stuff
+  vars_prompt:
+#    hosts: "please enter hosts group name"  # short form will be deprecated
+    - name: "in_hosts"
+      prompt: "please enter hosts group name"
+      default: "all"
+      private: no
+
+#  hosts: "{{ hosts }}"  # working
+#  hosts: {{ hosts }}  # not working
+#  hosts: $hosts  # not working
+  hosts: "{{ in_hosts }}"
+
+
+  tasks:
+    - name: check is Jenkins running on host
+      become: yes
+      service: name=jenkins state=started
+      register: jenkins_status
+
+    - command: echo 'jenkins_status.changed = TRUE'
+      when: jenkins_status.changed
+
+ 

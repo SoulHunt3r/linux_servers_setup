@@ -1,0 +1,16 @@
+---
+# because its playbook it contain host and other stuff
+# for tasks subdir will be starting with - name and so on
+- hosts: all
+  user: dfkzbt
+#  sudo: yes  # old style sudo, sudo/sudo_user
+#  become: yes  # new style sudo, become/become_user
+
+  tasks:
+    - name: check is Jenkins running on host
+      service: name=jenkins state=started
+      become: yes
+      register: jenkins_status
+
+    - command: echo 'jenkins_status.changed = TRUE'
+      when: jenkins_status.changed
