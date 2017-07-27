@@ -1,0 +1,51 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<!-- put in .m2 repository root -->
+
+<profiles>
+  <profile>
+    <id>nexus</id>
+    <repositories>
+      <repository>
+        <id>nexus-repo</id>
+        <name>Nexus repo</name>
+        <url>http://192.168.1.240:8081/nexus/content/groups/public</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>nexus-repo</id>
+        <name>Nexus repo </name>
+        <url>http://192.168.1.240:8081/nexus/content/groups/public</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+</profiles>
+<activeProfiles>
+  <activeProfile>nexus</activeProfile>
+</activeProfiles>
+
+  <servers>
+    <server>
+      <id>192.168.1.240</id> <!-- corresponding to id in pom.xml repository id -->
+      <username>user</username> <!-- default: admin -->
+      <password>pass</password> <!-- default: admin123 -->
+    </server>
+  </servers>
+
+</settings>
