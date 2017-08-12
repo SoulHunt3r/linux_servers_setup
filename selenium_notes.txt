@@ -1,0 +1,11 @@
+#
+1. Grid Hub:
+  1) run command: java -jar selenium-server-standalone-2.53.1.jar -role hub -port 4444
+2. Grid node:
+  1)
+  2) run command: java -jar selenium-server-standalone-2.53.1.jar -role node -nodeConfig example.json
+  3) run command: java -jar selenium-server-standalone-2.53.1.jar -role node -nodeConfig example.json
+  4) run command: java -jar selenium-server-standalone-2.53.1.jar -role node -hub http://10.0.2.2:4444/grid/register/
+  5) a: -browser browserName=firefox,version=3.6,firefox_binary=/home/myhomedir/firefox36/firefox,maxInstances=3,platform=LINUX -browser browserName=firefox,version=4,firefox_binary=/home/myhomedir/firefox4/firefox,maxInstances=4,platform=LINUX
+  6) a: -browser “browserName=firefox,version=3.6,firefox_binary=c:\Program Files\firefox ,maxInstances=3, platform=WINDOWS”
+#
