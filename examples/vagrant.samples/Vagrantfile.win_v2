@@ -1,0 +1,52 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "win7-2"
+
+
+#  config.vm.network "public_network"
+
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
+
+  config.winrm.username = "vagrant"
+  config.winrm.password = "vagrant"
+
+  config.vm.guest = :windows
+  config.vm.communicator = "winrm"
+
+  # Ensure that all networks are set to private
+  config.windows.set_work_network = true
+
+  config.vm.network :forwarded_port, guest: 3389, host: 33389
+#  config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+
+  # selenium node port
+  config.vm.network :forwarded_port, guest: 5556, host: 5556
+
+
+  # имя в `vagrant global-status`
+  config.vm.define "vg_win7-2" do |t|
+  end
+
+  config.vm.provider "virtualbox" do |vb|
+     # custom name in VirtualBox
+     vb.name = "vg_win7-2"
+     # Display the VirtualBox GUI when booting the machine
+     vb.gui = true
+     # Customize the amount of memory on the VM:
+     vb.memory = "1536"
+#     vb.customize ["modifyvm", :id, "--memory", "1024"]
+#     vb.customize ["modifyvm", :id, "--memory", "1536"]
+#     vb.customize ["modifyvm", :id, "--memory", "2048"]
+#     vb.customize ["modifyvm", :id, "--memory", "3072"]
+#     vb.customize ["modifyvm", :id, "--memory", "4096"]
+#     vb.customize ["modifyvm", :id, "--vram", "128"]
+#     vb.customize ["modifyvm", :id, "--vram", "256"]
+#     vb.customize ["modifyvm", :id, "--cpus", 1]
+#     vb.customize ["modifyvm", :id, "--cpus", 2]
+#     vb.customize ["modifyvm", :id, "--cpus", 4]
+  end
+
+end
