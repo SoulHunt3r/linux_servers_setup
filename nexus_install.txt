@@ -1,0 +1,33 @@
+1. install Oracle Java
+2. cmd: wget http://www.sonatype.org/downloads/nexus-latest-bundle.tar.gz
+3. root:
+  1) cmd:
+    cp nexus-latest-bundle.tar.gz /usr/local/
+    cd /usr/local/
+    tar -xvzf nexus-latest-bundle.tar.gz
+    ln -s nexus-2.11.3-01 nexus
+  2) add new user:
+    adduser --disabled-password --disabled-login nexus
+  3) make owner:
+    chown -R nexus:nexus ./nexus-2.11.3-01/
+    chown -R nexus:nexus ./sonatype-work/
+  4) do startup:
+    cp nexus/bin/nexus /etc/init.d/nexus
+    chmod 755 /etc/init.d/nexus
+    chown root /etc/init.d/nexus
+    update-rc.d nexus defaults
+  5) edit config '/etc/init.d/nexus':
+    NEXUS_HOME="/usr/local/nexus"
+    RUN_AS_USER="nexus"
+    PIDDIR="/usr/local/nexus/tmp"
+  6) start service:
+    sudo service nexus start
+  7) check log:
+    tail -f /usr/local/nexus/logs/wrapper.log
+4. browser: 
+    1) http://<nexus_host_ip>:8081/nexus/
+    2) login with defaults: admin:admin123
+    3) manage users: remove not needed, change admin email and stuff
+--
+
+
