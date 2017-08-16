@@ -74,4 +74,7 @@
 8. check for installed packages
   1) dpkg -l
 9. we are done for operations on local console and can use remote console.
-
+10. useful
+  1) text mode loading: 
+    vi /etc/default/grub
+    GRUB_CMDLINE_LINUX_DEFAULT="text"
