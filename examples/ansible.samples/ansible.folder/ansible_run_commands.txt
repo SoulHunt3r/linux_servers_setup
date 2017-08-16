@@ -1,0 +1,2 @@
+ansible-playbook -i inv.hosts -l jenkins tasks/java_8.yml
+ansible-playbook -i inv.hosts -l jenkins tasks/ansible.yml

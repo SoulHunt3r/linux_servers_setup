@@ -1,0 +1,20 @@
+﻿---
+- hosts: all
+  become: yes
+
+  tasks:
+
+    - name: ensure required packages are installed for latest Ansible
+      apt: name="{{item}}" state=latest update_cache=yes
+      with_items:
+        - python-software-properties
+        - software-properties-common
+
+    - name: Add Ansible repository to sources
+      action: apt_repository repo='ppa:ansible/ansible'
+
+    - name: Update APT package cache
+      action: apt update_cache=yes
+
+    - name: Install Ansible
+      action: apt pkg=ansible state=latest install_recommends=yes
