@@ -1,29 +1,29 @@
 ﻿#
 1. Stand-alone (as service) (for Debian/Ununtu):
-  1) add one of PPA:
+  1) check for Java, Git and Maven (install if needed)
+    1. commands:
+      java -version
+      git --version
+      mvn --version
+    2. remember Maven home for jenkins configuration, often /usr/share/maven
+  2) add one of PPA:
     1. regular builds:
       wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
       sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
     2. LTS builds:
       wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
       sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-  2) install:
+  3) install:
     sudo apt-get update
     sudo apt-get install jenkins
-  3) make sure service is up:
+  4) make sure service is up:
     service jenkins status
     # jenkins daemon, /etc/init.d/jenkins
     # jenkins user, jenkins
     # conf, /etc/default/jenkins
     # default listen port - 8080
-  4) initial admin password is in log /var/log/jenkins/jenkins.log 
+  5) initial admin password is in log /var/log/jenkins/jenkins.log 
      and in a file /var/lib/jenkins/secrets/initialAdminPassword
-  5) check for Java, Git and Maven (install if needed)
-    1. commands:
-      java -version
-      git --version
-      mvn --version
-    2. remember Maven home for jenkins configuration, often /usr/share/maven
   6) open in browser http://<host_where_jenkins_installed>:8080
   7) Configure Jenkins
 2. Docker:

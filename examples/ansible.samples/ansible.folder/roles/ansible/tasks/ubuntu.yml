@@ -1,0 +1,26 @@
+---
+#
+#  Installing on Ubuntu
+#
+
+- name: ensure required packages are installed for latest Ansible
+  apt: name={{item}} state=latest update_cache=yes
+  become: yes
+  with_items:
+    - python-software-properties
+    - software-properties-common
+
+- name: Add Ansible repository to sources
+  become: yes
+  apt_repository: repo='ppa:ansible/ansible' update_cache=yes
+
+- name: Update APT package cache
+  become: yes
+  apt: update_cache=yes
+
+- name: Install Ansible
+  apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+  become: yes
+  with_items:
+    - ansible
+    - sshpass

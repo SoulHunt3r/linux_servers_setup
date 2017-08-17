@@ -1,4 +1,8 @@
-﻿---
+---
+#
+#  Installing on Ubuntu
+#
+
 - hosts: all
   become: yes
 
@@ -10,17 +14,19 @@
         - python-software-properties
         - software-properties-common
 
-    - name: Add Java repository to sources
-      action: apt_repository repo='ppa:webupd8team/java'
+    - name: Add webupd8team/java repository on Ubuntu
+      apt_repository: repo="ppa:webupd8team/java" update_cache=yes
+#      when: ansible_distribution in [ 'Ubuntu' ]
+#      when: ansible_distribution == 'Ubuntu'
 
     - name: Autoaccept license for Java
-      action: shell echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+      shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 
     - name: Update APT package cache
-      action: apt update_cache=yes
+      apt: update_cache=yes
 
-    - name: Install Java 8
-      action: apt pkg=oracle-java8-installer state=latest install_recommends=yes
-
-    - name: Set Java 8 Env
-      action: apt pkg=oracle-java8-set-default state=latest install_recommends=yes
+    - name: Install Java 8 and set Env
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      with_items:
+        - oracle-java8-installer
+        - oracle-java8-set-default

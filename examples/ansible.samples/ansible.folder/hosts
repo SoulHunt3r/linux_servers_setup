@@ -16,8 +16,8 @@ localhost
 
 [jenkins_slave]
 
-[nexus]
+[nexus_servers]
 192.168.1.230
 
-[nexus_servers]
+[nexus]
 192.168.1.230
