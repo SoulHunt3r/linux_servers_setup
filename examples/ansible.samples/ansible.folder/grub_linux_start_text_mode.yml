@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: yes
-
-  tasks:
-
-    - name: generate powerdns config
-      template: src=grub.j2 dest=/etc/default/pdns owner=root group=root mode=0644

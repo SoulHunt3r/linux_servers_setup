@@ -1,0 +1,7 @@
+---
+# sample playbook with role
+
+- hosts: all
+  roles:
+  - role: common_sample
+
