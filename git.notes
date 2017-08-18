@@ -1,0 +1,14 @@
+#
+echo "# project.name" >> README.md
+git init
+git add .
+git commit -am "initial project commit"
+#
+git remote add origin https://git.host/git.user/git.repo.git
+git push -u origin master
+#
+git checkout -b develop
+git push --set-upstream origin develop
+#
+git branch -av
+
