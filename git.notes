@@ -7,9 +7,10 @@ git commit -am "initial project commit"
 git remote add origin https://git.host/git.user/git.repo.git
 git push -u origin master
 #
+git checkout -b develop origin/develop
 git checkout -b develop
 git branch --set-upstream-to=origin/develop develop
-#git push --set-upstream origin develop
+git push --set-upstream origin develop
 #
 git branch -av
 
