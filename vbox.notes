@@ -1,0 +1,11 @@
+1. change resolution on running vm
+  1) cmd: VBoxManage controlvm "<VM>" setvideomodehint 1280 1024 32
+  2) cmd: VBoxManage controlvm {VM_UUID} setvideomodehint 1024 768 32
+  3) cmd: VBoxManage setextradata global GUI/MaxGuestResolution any
+  4) cmd: VBoxManage setextradata "<VM>" "CustomVideoMode1" "1280x1024x32"
+2. bb
+  1) cmd: VBoxManage list vms
+  2) cmd: VBoxManage list runningvms
+2. cc
+  1) cmd:
+  2) cmd: 
