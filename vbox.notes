@@ -6,6 +6,7 @@
 2. bb
   1) cmd: VBoxManage list vms
   2) cmd: VBoxManage list runningvms
-2. cc
-  1) cmd:
-  2) cmd: 
+2. get current videomode from GuestOS, cmd and string "VideoMode" in result
+  1) cmd: VBoxManage showvminfo "<VM>"
+  2) cmd: VBoxManage showvminfo "<VM>" --machinereadable
+  3) cmd: VBoxManage guestproperty enumerate "<VM>"
