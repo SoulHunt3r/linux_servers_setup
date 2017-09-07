@@ -1,0 +1,25 @@
+#
+1. release
+  1) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" E:\projects\c\minerals\mindat_parser
+  2) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-release --target clean -- -j 1
+  3) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-release --target runUnitTests -- -j 1
+  4) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-release --target mindat_parser -- -j 1
+  5) E:\projects\c\minerals\mindat_parser\cmake-build-release\bin\runUnitTests.exe --gtest_filter=* --gtest_color=no
+2. debug
+  1) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" E:\projects\c\minerals\mindat_parser
+  2) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-debug --target clean -- -j 1
+  3) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-debug --target mindat_parser -- -j 1
+  4) "C:\Program Files\JetBrains\CLion 2017.2\bin\cmake\bin\cmake.exe" --build E:\projects\c\minerals\mindat_parser\cmake-build-debug --target runUnitTests -- -j 1
+  5) E:\projects\c\minerals\mindat_parser\cmake-build-debug\bin\runUnitTests.exe --gtest_filter=* --gtest_color=no
+3. aa
+  1) mkdir cmake-build-release
+  2) cd cmake-build-release
+  3) c:\lib\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" ./../
+  4) cd ..
+  5) c:\lib\cmake\bin\cmake.exe --build cmake-build-release --target runUnitTests -- -j 1
+  6) cd cmake-build-release\bin
+  7) run =)
+  8) c:\lib\cmake\bin\cmake.exe --build cmake-build-release --target clean -- -j 1
+  9) c:\lib\cmake\bin\cmake.exe --build cmake-build-release --target all -- -j 1
+4. bb
+  2) c:\lib\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" ./../
