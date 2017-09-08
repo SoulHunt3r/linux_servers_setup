@@ -27,6 +27,8 @@ git show v0.1
 git tag
 git tag -l
 git tag -l 'v0.*'
+git tag -l "v0.*"
+git tag -l v0.*
 #
 
 
