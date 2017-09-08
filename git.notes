@@ -4,7 +4,9 @@ git init
 git add .
 git commit -am "initial project commit"
 #
+git remote -v
 git remote add origin https://git.host/git.user/git.repo.git
+git remote remove origin
 git push -u origin master
 #
 git checkout -b develop origin/develop
