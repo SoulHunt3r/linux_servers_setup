@@ -18,5 +18,15 @@ git branch -av
 #
 git log --graph --decorate --oneline
 #
+git push --tags
+git push origin [tagname]
+git push origin v0.1
+git tag -a v0.1 -m "v0.1 release"
+git tag -a v0.1 -m "v0.1 release" <hash>
+git show v0.1
+git tag
+git tag -l
+git tag -l 'v0.*'
+#
 
 
