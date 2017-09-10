@@ -1,0 +1,8 @@
+#
+1. cmd: msbuild /t:Build /p:Configuration=Release Axitech.CMS.sln
+2. cmd: msbuild /t:Build /p:Configuration=Release "/p:Platform=AMD64" Axitech.CMS.sln
+3. cmd: msbuild /t:Build /p:Configuration=Release "/p:Platform=Any CPU" Axitech.CMS.sln
+4. cmd: msbuild /t:clean /p:Configuration=Release Axitech.CMS.sln
+5. 
+6. 
+

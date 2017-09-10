@@ -1,0 +1,4 @@
+#
+1. cmd: nuget.exe update -self
+2. cmd: nuget restore Axitech.CMS.sln 
+3.
