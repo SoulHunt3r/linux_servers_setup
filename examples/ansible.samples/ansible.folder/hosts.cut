@@ -1,0 +1,15 @@
+#
+#  hosts file
+#
+
+#
+# use local for configured through vagrant
+# mainly it can be used for linux host running vagrant VM's and we anisible on guest throu Vagrant
+#
+
+
+# use self for launch inside VM for self-updates
+[self]
+#127.0.0.1:22
+localhost
+

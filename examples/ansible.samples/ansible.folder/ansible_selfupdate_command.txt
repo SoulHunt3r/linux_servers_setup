@@ -1,0 +1,10 @@
+ansible-playbook -i hosts -l linux_self playbooks/ansible_ubuntu.yml
+
+
+ansible-playbook work.yml -i hosts -l local --tags "java8" -v
+
+ansible-playbook work.yml -i hosts -l local --tags "java8"
+
+
+
+ansible-playbook work.yml -i hosts.cut -l self --tags "ansible"

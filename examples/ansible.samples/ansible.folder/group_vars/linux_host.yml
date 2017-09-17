@@ -1,0 +1,11 @@
+#
+# vars for group [linux_local]
+#
+
+ansible_port: 22
+ansible_connection: ssh
+
+ansible_ssh_user: dfkzbt
+ansible_ssh_pass: jnrhsnm.lf0
+ansible_sudo_pass: jnrhsnm.lf0
+

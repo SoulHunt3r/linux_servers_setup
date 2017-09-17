@@ -1,0 +1,48 @@
+#
+#  hosts file
+#
+
+#
+# use local for configured through vagrant
+# mainly it can be used for linux host running vagrant VM's and we anisible on guest throu Vagrant
+#
+
+
+[LINUX:children]
+linux_local
+linux_self
+vg_linux_host
+linux_host
+
+[linux_local]
+localhost:2222
+
+# use self for launch inside VM for self-updates
+[linux_self]
+#127.0.0.1
+localhost:22	
+
+[vg_linux_host]
+192.168.1.235:22
+
+[linux_host]
+192.168.1.230:22
+192.168.1.240:22
+
+#
+# --- WINDOWS ---
+#
+[WINDOWS:children]
+windows_local
+vg_windows_host
+windows_host
+
+[windows_local]
+localhost:55985
+
+[vg_windows_host]
+192.168.1.50:5985
+
+[windows_host]
+
+

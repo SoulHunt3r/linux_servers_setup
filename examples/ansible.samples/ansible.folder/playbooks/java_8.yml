@@ -9,7 +9,7 @@
   tasks:
 
     - name: ensure required packages are installed for Java 8
-      apt: name="{{item}}" state=latest update_cache=yes
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
       with_items:
         - python-software-properties
         - software-properties-common

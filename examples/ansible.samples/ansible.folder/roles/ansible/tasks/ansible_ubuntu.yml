@@ -4,7 +4,7 @@
 #
 
 - name: ensure required packages are installed for latest Ansible
-  apt: name={{item}} state=latest update_cache=yes
+  apt: name={{item}} state=latest install_recommends=yes update_cache=yes
   become: yes
   with_items:
     - python-software-properties

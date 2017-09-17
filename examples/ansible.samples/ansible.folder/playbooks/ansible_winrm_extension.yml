@@ -13,12 +13,11 @@
       with_items:
         - python-software-properties
         - software-properties-common
+        - python-pip
 
     - name: Add Ansible repository to sources
       become: yes
       apt_repository: repo='ppa:ansible/ansible' update_cache=yes
-#      when: ansible_distribution in [ 'Ubuntu' ]
-#      when: ansible_distribution == 'Ubuntu'
 
     - name: Update APT package cache
       become: yes
@@ -30,3 +29,7 @@
       with_items:
         - ansible
         - sshpass
+
+    - name: Install WinRM support for managing Windows targets
+      shell: pip install "pywinrm>=0.2.2"
+
