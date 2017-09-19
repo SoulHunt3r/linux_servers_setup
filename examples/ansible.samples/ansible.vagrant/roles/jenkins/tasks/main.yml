@@ -1,0 +1,46 @@
+---
+#
+#
+#
+
+#dependencies:
+#  - { role: oracle-java-8}
+
+# somehow make check java is installed and install it if not
+- name: install | Check java binary
+  command: "which java"
+  changed_when: False
+  failed_when: False
+  register: java_path
+
+- name: install | Fail if java is not installed
+  fail:
+    msg="Java is not installed or not in path"
+  when: java_path.rc != 0
+
+# java must be installed to proceed
+
+
+- name: ensure additional packages are installed
+  apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+  become: yes
+  with_items:
+    - git
+    - maven
+
+- name: Add Jenkins repository apt key
+  action: apt_key url=https://pkg.jenkins.io/debian/jenkins.io.key state=present
+  become: yes
+
+- name: Add Jenkins repository
+  apt_repository: repo="deb https://pkg.jenkins.io/debian-stable binary/" update_cache=yes
+  become: yes
+
+- name: Install Jenkins
+  apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+  become: yes
+  with_items:
+    - jenkins
+
+- name: Check Jenkins is up
+  service: name=jenkins state=started
