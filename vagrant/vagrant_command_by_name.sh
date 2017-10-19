@@ -27,7 +27,7 @@
 #                                                                              #
 #                                                                              #
 #  Call with:                                                                  #
-#    vagrant_command_by_name.sh <command> <VM_name>                            #
+#    vagrant_command_by_name.sh <command> <VM_name> [options]                  #
 #  exit codes:                                                                 #
 #    0  - on success                                                           #
 #    64 - on invalid args                                                      #
@@ -85,6 +85,18 @@ else
 fi
 # --- get VM name as arg2
 
+# --- get vagrant command options as arg3
+if [ -z "$3" ]
+then
+  # no additional args
+  command_options=""
+  echo -e "ARG3 MISSED. Use blank command options: ${command_options}"
+else
+  # additional port args provided
+  command_options=$3
+  echo -e "Use command options: ${command_options}"
+fi
+# --- get vagrant command options as arg3
 
 #
 # -- vars
@@ -182,7 +194,7 @@ case "$1" in
 ;;
 "port")
   # -- run
-  if vagrant ${vagrant_command} ${vm_UID}
+  if vagrant ${vagrant_command} ${command_options} ${vm_UID}
   then
     echo -e "Command run successful"
     exit ${E_OK}
@@ -223,6 +235,8 @@ case "$1" in
   fi
   # -- run
 ;;
+#TODO: support for reload
+#TODO: support for custom command - magnet. Change dir to where Vagrantfile is for given VM name
 *)
   echo -e "Command not supported."
   exit ${E_VAGRANT_COMMAND_NOT_SUPPORTED}
