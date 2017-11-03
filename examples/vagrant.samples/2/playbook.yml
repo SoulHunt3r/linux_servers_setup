@@ -1,0 +1,28 @@
+---
+# sample playbook with role
+
+- hosts: all
+  roles:
+    - ansible
+  tags:
+    - ansible
+
+#- hosts: all
+#  roles:
+#    - oracle-java-8
+#  tags:
+#    - java8
+
+#- hosts: all
+#  roles:
+#    - oracle-java-8
+#    - jenkins
+#  tags:
+#    - jenkins
+
+#- hosts: nexus_servers
+#  roles:
+#    - oracle-java-8
+#    - nexus
+#  tags:
+#    - nexus
