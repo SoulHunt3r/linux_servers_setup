@@ -1,0 +1,27 @@
+---
+#
+#
+#
+- hosts: all
+
+  tasks:
+
+    - name: install pg gem prereq
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      become: yes
+      with_items:
+        - libpq-dev
+
+    - name: install gem pg version 0.18.1
+      become: yes 
+      shell: gem install pg -v '0.18.1'
+
+    - name: install Apache2 passenger module
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      become: yes
+      with_items:
+        - libapache2-mod-passenger
+
+
+
+

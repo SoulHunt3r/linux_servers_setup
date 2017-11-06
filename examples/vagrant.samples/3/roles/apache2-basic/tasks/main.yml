@@ -1,0 +1,11 @@
+---
+#
+#
+#
+
+- name: ensure additional packages are installed
+  apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+  become: yes
+  with_items:
+    - apache2
+

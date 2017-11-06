@@ -1,0 +1,12 @@
+---
+#
+#  Installs Ansible
+#
+
+#  when: ansible_distribution in [ 'Ubuntu' ]
+#  when: ansible_distribution == 'Ubuntu'
+#  when: "ansible_os_family == 'Debian'"
+#  when: ansible_os_family == "Ubuntu"
+
+- include: ansible_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"

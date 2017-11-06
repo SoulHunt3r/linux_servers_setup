@@ -1,0 +1,11 @@
+---
+#
+#
+#
+    - name: install Ruby and Ruby develop
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      become: yes
+      with_items:
+        - ruby
+        - ruby-dev
+

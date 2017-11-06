@@ -1,0 +1,32 @@
+---
+# sample playbook with role
+
+- hosts: all
+  roles:
+    - ansible
+    - apache2-basic
+    - postgres-dev
+    - ruby-dev
+    - redmine-prereq
+
+
+
+#- hosts: all
+#  roles:
+#    - oracle-java-8
+#  tags:
+#    - java8
+
+#- hosts: all
+#  roles:
+#    - oracle-java-8
+#    - jenkins
+#  tags:
+#    - jenkins
+
+#- hosts: nexus_servers
+#  roles:
+#    - oracle-java-8
+#    - nexus
+#  tags:
+#    - nexus

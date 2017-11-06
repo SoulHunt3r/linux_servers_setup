@@ -1,0 +1,41 @@
+---
+#
+#  Installing on Ubuntu
+#
+
+- hosts: all
+  vars:
+    ansible_user: vagrant
+    ansible_password: vagrant
+    ansible_ssh_user: vagrant
+    ansible_ssh_pass: vagrant
+    ansible_sudo_pass: vagrant
+
+  tasks:
+
+    - name: ensure required packages are installed for latest Ansible
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      become: yes
+      with_items:
+        - python-software-properties
+        - software-properties-common
+        - python-pip
+
+    - name: Add Ansible repository to sources
+      become: yes
+      apt_repository: repo='ppa:ansible/ansible' update_cache=yes
+
+    - name: Update APT package cache
+      become: yes
+      apt: update_cache=yes
+
+    - name: Install Ansible
+      apt: name={{item}} state=latest install_recommends=yes update_cache=yes
+      become: yes
+      with_items:
+        - ansible
+        - sshpass
+
+    - name: Install WinRM support for managing Windows targets
+      shell: pip install "pywinrm>=0.2.2"
+
