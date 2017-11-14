@@ -25,9 +25,9 @@ mkdir -p ${backup_folder}
 upload_folder="${PATH_TO_TESTLINK_DIR}/upload_area/"
 
 
-filename1="${backup_folder}/${PROJECT}_db_${mydate}.backup.sql"
-filename2="${backup_folder}/${PROJECT}_upload_${mydate}.backup.tar.gz"
-filename3="${backup_folder}/${PROJECT}_config_${mydate}.backup.tar.gz"
+filename1="${backup_folder}/${mydate}-${PROJECT}_db.backup.sql"
+filename2="${backup_folder}/${mydate}-${PROJECT}_upload.backup.tar.gz"
+filename3="${backup_folder}/${mydate}-${PROJECT}_config.backup.tar.gz"
 
 echo;
 echo -e "TIMESTAMP: ${mydate}"
@@ -45,9 +45,9 @@ echo; echo;
 cd ${backup_folder}
 
 # do backup clean
-ls -t ${PROJECT}_db_*.backup.sql.gz | sed -e '1,13d' | xargs -d '\n' rm -f
-ls -t ${PROJECT}_upload_*.backup.tar.gz | sed -e '1,13d' | xargs -d '\n' rm -f
-ls -t ${PROJECT}_config_*.backup.tar.gz | sed -e '1,13d' | xargs -d '\n' rm -f
+ls -t *-${PROJECT}_db.backup.sql.gz | sed -e '1,13d' | xargs -d '\n' rm -f
+ls -t *-${PROJECT}_upload.backup.tar.gz | sed -e '1,13d' | xargs -d '\n' rm -f
+ls -t *-${PROJECT}_config.backup.tar.gz | sed -e '1,13d' | xargs -d '\n' rm -f
 
 # change folder back
 cd -
