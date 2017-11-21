@@ -59,6 +59,9 @@
      ssh-copy-id -p 22 user@target_host_server
      ssh user@target_host_server
      ssh -t user@target_host_server   # for colored terminal
+     #
+     ssh-keyscan -t ecdsa localhost >> ~/.ssh/known_hosts
+     ssh-keygen -Hf ~/.ssh/known_hosts
   3) putty:
      run puttygen.
      load private key - Conversions->Import Key.
