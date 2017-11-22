@@ -9,6 +9,8 @@ git remote add origin https://git.host/git.user/git.repo.git
 git remote remove origin
 git push -u origin master
 #
+git push origin :develop
+#
 git checkout -b develop origin/develop
 git checkout -b develop
 git branch --set-upstream-to=origin/develop develop
