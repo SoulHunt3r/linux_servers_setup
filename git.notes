@@ -32,5 +32,14 @@ git tag -l 'v0.*'
 git tag -l "v0.*"
 git tag -l v0.*
 #
+git merge -e --no-ff <branch_name>
+#
+git add -p
+git add -i
+git rebase -i <commit_id>
+git reset --soft <commit_id>
+git reset --soft HEAD~2
+git reset --soft HEAD^^
+#
 
 
