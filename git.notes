@@ -7,8 +7,12 @@ git commit -am "initial project commit"
 git remote -v
 git remote add origin https://git.host/git.user/git.repo.git
 git remote remove origin
+# with add upstream
 git push -u origin master
-#
+# without adding upstream
+git push origin HEAD
+
+# delete remote
 git push origin :develop
 #
 git checkout -b develop origin/develop
