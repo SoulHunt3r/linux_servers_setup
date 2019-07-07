@@ -9,6 +9,13 @@ git remote add origin https://git.host/git.user/git.repo.git
 git remote remove origin
 git push -u origin master
 #
+git remote show origin
+#
+git fetch --all --prune
+git fetch --all -p
+git fetch --all --prune --prune-tags
+git fetch --all -p -P
+#
 git push origin :develop
 #
 git checkout -b develop origin/develop

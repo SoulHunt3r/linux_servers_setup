@@ -63,3 +63,6 @@
 15. mvn dependency:copy-dependencies -DoutputDirectory=target/lib
 16. mvn dependency:purge-local-repository
 17. mvn dependency:sources
+
+# execute only single sub-project
+mvn <action> -pl <subproject>
