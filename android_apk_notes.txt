@@ -1,0 +1,11 @@
+## get apk  info (versionCode, versionName included)
+
+aapt dump badging app/build/outputs/apk/app-release.apk
+aapt dump badging app/build/outputs/apk/app-release-unsigned.apk
+
+### .
+
+aapt dump badging app/build/outputs/apk/debug/app-debug.apk
+aapt dump badging app/build/outputs/apk/release/app-release-unsigned.apk
+
+

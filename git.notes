@@ -56,4 +56,5 @@ git reset --soft HEAD~2
 git reset --soft HEAD^^
 #
 
-
+#  fix UTF-8 symbol translation for FarManager (aka weird symbols) in git output
+set LESSCHARSET=UTF-8
