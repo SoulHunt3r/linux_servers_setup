@@ -54,6 +54,7 @@ git rebase -i <commit_id>
 git reset --soft <commit_id>
 git reset --soft HEAD~2
 git reset --soft HEAD^^
+git reset HEAD~
 #
 
 #  fix UTF-8 symbol translation for FarManager (aka weird symbols) in git output
