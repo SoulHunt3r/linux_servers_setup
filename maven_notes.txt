@@ -65,5 +65,8 @@
 16. mvn dependency:purge-local-repository
 17. mvn dependency:sources
 
-# execute only single sub-project
-mvn <action> -pl <subproject>
+# execute sub-project(s)
+mvn <action> -pl [<subproject>,<subproject2>]
+
+## execute sub-project(s) with all required subprojects
+mvn <action> -am -pl [<subproject>,<subproject2>]
